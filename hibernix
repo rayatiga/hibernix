@@ -1,0 +1,33 @@
+#!/bin/bash
+
+sleep 1
+echo -ne "Root checking...\r"
+sleep 2
+if ! [ $(id -u) = 0 ]; then
+	printf "Please run as root.\n"
+	exit 1
+fi
+sleep 2
+echo -ne "Root checking... OK"
+
+sleep 2
+echo -ne "\nRestart and clearing swap...\r"
+sleep 2
+sudo swapoff --all
+sudo swapon --all
+echo -ne "Restart and clearing swap... OK"
+
+sleep 2
+echo -ne "\nExecuting systemctl hibernate... 5\r"
+sleep 1
+echo -ne "Executing systemctl hibernate... 4\r"
+sleep 1
+echo -ne "Executing systemctl hibernate... 3\r"
+sleep 1
+echo -ne "Executing systemctl hibernate... 2\r"
+sleep 1
+echo -ne "Executing systemctl hibernate... 1\r"
+sleep 1
+echo -ne "Executing systemctl hibernate... OK"
+sleep 1
+systemctl hibernate
