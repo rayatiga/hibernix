@@ -2,22 +2,23 @@
 
 sleep 1
 echo -ne "Root checking...\r"
-sleep 2
+sleep 1
 if ! [ $(id -u) = 0 ]; then
 	printf "Please run as root.\n"
+	sleep 1
 	exit 1
 fi
-sleep 2
+sleep 1
 echo -ne "Root checking... OK"
 
-sleep 2
+sleep 1
 echo -ne "\nRestart and clearing swap...\r"
-sleep 2
+sleep 1
 sudo swapoff --all
 sudo swapon --all
 echo -ne "Restart and clearing swap... OK"
 
-sleep 2
+sleep 1
 echo -ne "\nExecuting systemctl hibernate... 5\r"
 sleep 1
 echo -ne "Executing systemctl hibernate... 4\r"
